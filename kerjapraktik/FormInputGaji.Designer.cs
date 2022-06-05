@@ -62,12 +62,12 @@ namespace kerjapraktik
             this.bagian = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.harga = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dateTimePickerTanggalGajian = new System.Windows.Forms.DateTimePicker();
-            this.textBoxNama = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxTempat = new System.Windows.Forms.TextBox();
+            this.comboBoxNama = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDataBagian)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewData)).BeginInit();
             this.SuspendLayout();
@@ -370,14 +370,6 @@ namespace kerjapraktik
             this.dateTimePickerTanggalGajian.Size = new System.Drawing.Size(235, 20);
             this.dateTimePickerTanggalGajian.TabIndex = 110;
             // 
-            // textBoxNama
-            // 
-            this.textBoxNama.Location = new System.Drawing.Point(84, 64);
-            this.textBoxNama.Multiline = true;
-            this.textBoxNama.Name = "textBoxNama";
-            this.textBoxNama.Size = new System.Drawing.Size(277, 28);
-            this.textBoxNama.TabIndex = 107;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -423,11 +415,44 @@ namespace kerjapraktik
             this.textBoxTempat.Size = new System.Drawing.Size(277, 28);
             this.textBoxTempat.TabIndex = 108;
             // 
+            // comboBoxNama
+            // 
+            this.comboBoxNama.FormattingEnabled = true;
+            this.comboBoxNama.Items.AddRange(new object[] {
+            "Gosok krah",
+            "",
+            "Krah ",
+            "",
+            "Badan (include badan depan, belakang, skaur, jahit tangan) ",
+            "",
+            "Roges",
+            "",
+            "Obras tangan",
+            "",
+            "Tindes tangan",
+            "",
+            "Make up",
+            "",
+            "Lipat bawah",
+            "",
+            "Naskat",
+            "",
+            "Kancing",
+            "",
+            "Bersih benang",
+            "",
+            "Gosok"});
+            this.comboBoxNama.Location = new System.Drawing.Point(84, 69);
+            this.comboBoxNama.Name = "comboBoxNama";
+            this.comboBoxNama.Size = new System.Drawing.Size(276, 21);
+            this.comboBoxNama.TabIndex = 134;
+            // 
             // FormInputGaji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 561);
+            this.Controls.Add(this.comboBoxNama);
             this.Controls.Add(this.buttonCari);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.textBoxJumlah);
@@ -452,7 +477,6 @@ namespace kerjapraktik
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridViewData);
             this.Controls.Add(this.dateTimePickerTanggalGajian);
-            this.Controls.Add(this.textBoxNama);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -503,11 +527,11 @@ namespace kerjapraktik
         private System.Windows.Forms.DataGridViewComboBoxColumn bagian;
         private System.Windows.Forms.DataGridViewComboBoxColumn harga;
         private System.Windows.Forms.DateTimePicker dateTimePickerTanggalGajian;
-        private System.Windows.Forms.TextBox textBoxNama;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxTempat;
+        private System.Windows.Forms.ComboBox comboBoxNama;
     }
 }

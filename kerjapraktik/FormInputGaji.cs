@@ -29,16 +29,16 @@ namespace kerjapraktik
 
         private void buttonKunciGaji_Click(object sender, EventArgs e)
         {
-            if (textBoxNama.Enabled == true)
+            if (comboBoxNama.Enabled == true)
             {
-                textBoxNama.Enabled = false;
+                comboBoxNama.Enabled = false;
                 textBoxTempat.Enabled = false;
                 dateTimePickerTanggalGajian.Enabled = false;
                 buttonKunciGaji.Text = "Lepas Kunci";
             }
             else
             {
-                textBoxNama.Enabled = true;
+                comboBoxNama.Enabled = true;
                 textBoxTempat.Enabled = true;
                 dateTimePickerTanggalGajian.Enabled = true;
                 buttonKunciGaji.Text = "Kunci Gaji";
@@ -90,30 +90,41 @@ namespace kerjapraktik
             }
         }
 
-        private void FormatDataGrid()
+        private void FormatDataGridGaji()
         {//sisi kanan
             dataGridViewData.Columns.Clear();
             //ubahen sek ini sesuai sg mbok mau aku bingung bacae
+            dataGridViewData.Columns.Add("no", "No");
+            dataGridViewData.Columns.Add("kodeArtikel", "kodeArt"); 
+            dataGridViewData.Columns.Add("seri", "Seri");
+            dataGridViewData.Columns.Add("size", "Size"); 
             dataGridViewData.Columns.Add("bagian", "Bagian");
-            dataGridViewData.Columns.Add("tersedia", "Tersedia"); 
-            dataGridViewData.Columns.Add("harga", "Harga");
+            dataGridViewData.Columns.Add("jumlah", "Jumlah");
+            dataGridViewData.Columns.Add("total", "Total");
 
+            dataGridViewData.Columns["no"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewData.Columns["kodeArtikel"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewData.Columns["seri"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewData.Columns["size"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewData.Columns["bagian"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewData.Columns["tersedia"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewData.Columns["harga"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewData.Columns["jumlah"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewData.Columns["total"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            dataGridViewData.AllowUserToAddRows = true;
-            dataGridViewData.ReadOnly = false;
+
+            dataGridViewData.AllowUserToAddRows = false;
+            dataGridViewData.ReadOnly = true;
         }
-        private void TampilDataGrid()
+        private void TampilDataGridGaji()
         {//sisi kanan
             //iki sisan
-            if (listBagian.Count > 0)
+            if (listGaji.Count > 0)
             {
+                int count = 1;
                 dataGridViewData.Rows.Clear();
-                foreach (Bagians b in listBagian)
+                foreach (Gajis g in listGaji)
                 {
-                    dataGridViewDataBagian.Rows.Add(b.Bagian, b.Tersedia, b.Biaya_Satuan);
+                    //dataGridViewDataBagian.Rows.Add(count, g.kodeArt, g.seri, g.size, g.bagian, g.jumlah, g.total); //ambil kode artikel, seri, size dari inner join bagian mbe AP(?)
+                    count++;
                 }
             }
             else
