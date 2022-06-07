@@ -32,16 +32,16 @@ namespace kerjapraktik
 
         private void buttonKunciGaji_Click(object sender, EventArgs e)
         {
-            if (textBoxNama.Enabled == true)
+            if (comboBoxNama.Enabled == true)
             {
-                textBoxNama.Enabled = false;
+                comboBoxNama.Enabled = false;
                 textBoxTempat.Enabled = false;
                 dateTimePickerTanggalGajian.Enabled = false;
                 buttonKunciGaji.Text = "Lepas Kunci";
             }
             else
             {
-                textBoxNama.Enabled = true;
+                comboBoxNama.Enabled = true;
                 textBoxTempat.Enabled = true;
                 dateTimePickerTanggalGajian.Enabled = true;
                 buttonKunciGaji.Text = "Kunci Gaji";

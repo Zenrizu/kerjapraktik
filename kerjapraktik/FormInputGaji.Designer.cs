@@ -62,7 +62,6 @@ namespace kerjapraktik
             this.bagian = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.harga = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dateTimePickerTanggalGajian = new System.Windows.Forms.DateTimePicker();
-            this.textBoxNama = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -384,14 +383,6 @@ namespace kerjapraktik
             this.dateTimePickerTanggalGajian.Size = new System.Drawing.Size(235, 20);
             this.dateTimePickerTanggalGajian.TabIndex = 110;
             // 
-            // textBoxNama
-            // 
-            this.textBoxNama.Location = new System.Drawing.Point(84, 64);
-            this.textBoxNama.Multiline = true;
-            this.textBoxNama.Name = "textBoxNama";
-            this.textBoxNama.Size = new System.Drawing.Size(277, 28);
-            this.textBoxNama.TabIndex = 107;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -497,7 +488,6 @@ namespace kerjapraktik
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridViewData);
             this.Controls.Add(this.dateTimePickerTanggalGajian);
-            this.Controls.Add(this.textBoxNama);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -548,7 +538,6 @@ namespace kerjapraktik
         private System.Windows.Forms.DataGridViewComboBoxColumn bagian;
         private System.Windows.Forms.DataGridViewComboBoxColumn harga;
         private System.Windows.Forms.DateTimePicker dateTimePickerTanggalGajian;
-        private System.Windows.Forms.TextBox textBoxNama;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
