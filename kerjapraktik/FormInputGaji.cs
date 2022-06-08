@@ -32,20 +32,42 @@ namespace kerjapraktik
 
         private void buttonKunciGaji_Click(object sender, EventArgs e)
         {
-            if (comboBoxNama.Enabled == true)
+            
+            if (textBoxNama.Enabled == true)
             {
-                comboBoxNama.Enabled = false;
-                textBoxTempat.Enabled = false;
-                dateTimePickerTanggalGajian.Enabled = false;
-                buttonKunciGaji.Text = "Lepas Kunci";
+                try
+                {
+                    listP = Pekerjas.BacaData("nama", textBoxNama.Text);
+                    if (listP.Count() > 0)
+                    {
+                        string check = listP[0].Nama;
+                        textBoxNama.Text = check;
+                        textBoxNama.Enabled = false;
+                        textBoxTempat.Enabled = false;
+                        dateTimePickerTanggalGajian.Enabled = false;
+                        buttonKunciGaji.Text = "Lepas Kunci";
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nama pegawai tidak ditemukan!","ALERT!");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Error message : " + ex);
+                }
             }
             else
             {
-                comboBoxNama.Enabled = true;
+                textBoxNama.Enabled = true;
                 textBoxTempat.Enabled = true;
                 dateTimePickerTanggalGajian.Enabled = true;
                 buttonKunciGaji.Text = "Kunci Gaji";
             }
+
         }
 
         private void FormInputGaji_Load(object sender, EventArgs e)
@@ -138,6 +160,13 @@ namespace kerjapraktik
 
         private void buttonTambahBagian_Click(object sender, EventArgs e)
         {
+            //kasbon 
+            listGaji = Gajis.BacaData("id", id);
+            int kasbonlama = Gajis.checkKasbon(textBoxNama.Text);
+            textBoxSisa.Text = kasbonlama.ToString();
+
+
+            //pembuatan gajis
             List<Pekerjas> listP = Pekerjas.BacaData("nama", textBoxNama.Text);
             Pekerjas p = new Pekerjas(listP[0].IdPekerjas, listP[0].Nama);
             DateTime tanggal = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -182,10 +211,7 @@ namespace kerjapraktik
             textBoxSubtotal.Text = subtotal.ToString();
 
 
-            //kasbon 
-            listGaji = Gajis.BacaData("id", id);
-            int kasbon = listGaji[0].Kasbon;
-            textBoxSisa.Text = kasbon.ToString();
+            
 
             //Bagians b = new Bagians();
             
@@ -201,8 +227,8 @@ namespace kerjapraktik
             try
             {
                 int kasbon = int.Parse(textBoxKasbon.Text);
-                int kasInp = int.Parse(textBoxSisa.Text) + kasbon;
                 int potong = int.Parse(textBoxPotong.Text);
+                int kasInp = int.Parse(textBoxSisa.Text) + kasbon - potong;
                 int total = subtotal - potong + kasbon;
                 listP = Pekerjas.BacaData("nama", textBoxNama.Text);
                 listGaji = Gajis.BacaData("id", id);
