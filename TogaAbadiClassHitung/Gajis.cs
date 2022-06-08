@@ -81,7 +81,7 @@ namespace TogaAbadiClassHitung
         public DateTime Tanggal { get => tanggal; set => tanggal = value; }
         public string Nama { get => nama; set => nama = value; }
         #endregion
-
+        
         #region method
         public static void TambahData(Gajis parGajis, Pekerjas parPekerjas,DateTime tanggal)
         {
@@ -199,6 +199,24 @@ namespace TogaAbadiClassHitung
                 listGajis.Add(g);
             }
             return listGajis;
+        }
+        public static int checkKasbon(string nama)
+        {
+            string sql = "";
+                sql = "SELECT g.kasbon FROM gajis g " +
+                        "LEFT JOIN pekerjas p on g.pekerjas_id = p.id WHERE p.nama"
+                        + " LIKE '%" + nama + "%' ORDER BY g.id DESC LIMIT 1";
+            
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            int kasbonlama = 0;
+            while (hasil.Read() == true)
+            {
+
+                kasbonlama = int.Parse(hasil.GetValue(0).ToString());
+
+            }
+            
+            return kasbonlama;
         }
         public static int HitungGaji(int biayasatuan,int kasbon, int potongankasbon,int diambil, Bagians b)
         {
